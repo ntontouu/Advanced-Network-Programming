@@ -1,17 +1,19 @@
-﻿# Advanced Network Programming
+﻿# Introduction to TCP Sockets
 
 [![University](https://img.shields.io/badge/University-University%20of%20Ioannina-blue.svg)](https://www.uoi.gr)
-[![Department](https://img.shields.io/badge/Department-Informatics%20%26%20Telecommunications-lightgrey.svg)](https://www.cs.uoi.gr/)
-[![Course](https://img.shields.io/badge/Course-Advanced%20Network%20Programming-orange.svg)]()
 [![Language](https://img.shields.io/badge/Language-C-blueviolet.svg)]()
+[![Protocol](https://img.shields.io/badge/Protocol-TCP%2FIPv4-orange.svg)]()
 
-A comprehensive collection of network programming projects developed for the course **"Advanced Topics in Network Programming"** (Προχωρημένα Θέματα Προγραμματισμού Δικτύων) at the Department of Informatics and Telecommunications, University of Ioannina.
+## Overview
+This project explores the implementation of connection-oriented networking using the **Berkeley Sockets API** in C. It demonstrates how processes communicate over a network via the Transmission Control Protocol (TCP).
 
-## 📂 Repository Index (Branches)
+## Technical Implementation
+### The Client-Server Architecture
+- **Server (`server1.c`):** Creates a stream socket (`SOCK_STREAM`, `AF_INET`), binds to a specified port, listens for incoming connections, and accepts them. Upon connection, it transmits a greeting payload and safely closes the file descriptor.
+- **Client (`client.c`, `client1.c`):** Dynamically accepts an IPv4 address and a Port via command-line arguments. It utilizes `inet_pton()` to convert standard IPv4 dotted-decimal strings into network byte order, establishing a reliable connection to the target server to retrieve data.
 
-- **[`assignment-1-c-basics`](https://github.com/ntontouu/Advanced-Network-Programming/tree/assignment-1-c-basics)**: C language fundamentals (Pointers, Structs, CLI Arguments).
-- **[`assignment-2-tcp-sockets`](https://github.com/ntontouu/Advanced-Network-Programming/tree/assignment-2-tcp-sockets)**: Introduction to Berkeley Sockets, TCP Client-Server architecture, and IPv4 addressing.
-- **[`assignment-3-chat-application`](https://github.com/ntontouu/Advanced-Network-Programming/tree/assignment-3-chat-application)**: Advanced Multiplexing I/O utilizing `select()`, evolving from a simple Client-Server chat to a multi-client Chatroom with private messaging (`/msg`).
+### Use Case
+The client was tested against public NIST and University time servers (Daytime Protocol, Port 13) to successfully fetch the current synchronized UTC time.
 
 ---
 **Author:** Maria Alexandra Ntontou (2799)
