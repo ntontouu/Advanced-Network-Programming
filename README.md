@@ -1,17 +1,16 @@
-﻿# Advanced Network Programming
+﻿# C Programming Fundamentals Refresher
 
 [![University](https://img.shields.io/badge/University-University%20of%20Ioannina-blue.svg)](https://www.uoi.gr)
-[![Department](https://img.shields.io/badge/Department-Informatics%20%26%20Telecommunications-lightgrey.svg)](https://www.cs.uoi.gr/)
-[![Course](https://img.shields.io/badge/Course-Advanced%20Network%20Programming-orange.svg)]()
 [![Language](https://img.shields.io/badge/Language-C-blueviolet.svg)]()
 
-A comprehensive collection of network programming projects developed for the course **"Advanced Topics in Network Programming"** (Προχωρημένα Θέματα Προγραμματισμού Δικτύων) at the Department of Informatics and Telecommunications, University of Ioannina.
+## Overview
+This introductory assignment serves as a rigorous refresher on the core concepts of the C programming language, specifically preparing the environment and logic required for low-level network programming on Linux (Ubuntu).
 
-## 📂 Repository Index (Branches)
-
-- **[`assignment-1-c-basics`](https://github.com/ntontouu/Advanced-Network-Programming/tree/assignment-1-c-basics)**: C language fundamentals (Pointers, Structs, CLI Arguments).
-- **[`assignment-2-tcp-sockets`](https://github.com/ntontouu/Advanced-Network-Programming/tree/assignment-2-tcp-sockets)**: Introduction to Berkeley Sockets, TCP Client-Server architecture, and IPv4 addressing.
-- **[`assignment-3-chat-application`](https://github.com/ntontouu/Advanced-Network-Programming/tree/assignment-3-chat-application)**: Advanced Multiplexing I/O utilizing `select()`, evolving from a simple Client-Server chat to a multi-client Chatroom with private messaging (`/msg`).
+## Core Concepts Explored
+- **String Manipulation (`string.c`):** Handling arrays of characters and understanding the critical importance of the null terminator (`\0`) in preventing memory read overruns.
+- **Memory & Pointers (`pointer.c`):** Direct memory access utilizing pointers, exploring memory address mappings, and dereferencing values.
+- **CLI Arguments (`orisma.c`):** Processing Command Line Arguments through `argc` (argument count) and `argv[]` (argument vector).
+- **Structures (`domi.c`, `domi1.c`):** Grouping heterogeneous data types into logical blocks (`struct`) and passing pointers to structs into functions for efficient memory usage.
 
 ---
 **Author:** Maria Alexandra Ntontou (2799)
