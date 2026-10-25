@@ -1,17 +1,27 @@
-﻿# Advanced Network Programming
+﻿# Multiplexing I/O: Advanced Chat Application
 
 [![University](https://img.shields.io/badge/University-University%20of%20Ioannina-blue.svg)](https://www.uoi.gr)
-[![Department](https://img.shields.io/badge/Department-Informatics%20%26%20Telecommunications-lightgrey.svg)](https://www.cs.uoi.gr/)
-[![Course](https://img.shields.io/badge/Course-Advanced%20Network%20Programming-orange.svg)]()
 [![Language](https://img.shields.io/badge/Language-C-blueviolet.svg)]()
+[![Syscall](https://img.shields.io/badge/Syscall-select()-yellow.svg)]()
 
-A comprehensive collection of network programming projects developed for the course **"Advanced Topics in Network Programming"** (Προχωρημένα Θέματα Προγραμματισμού Δικτύων) at the Department of Informatics and Telecommunications, University of Ioannina.
+## Overview
+This assignment demonstrates advanced socket programming techniques by evolving a rudimentary socket connection into a fully functional, multi-user Chatroom. The core mechanism enabling this non-blocking behavior is the `select()` system call, which allows a single process to monitor multiple file descriptors (sockets and standard input) simultaneously.
 
-## 📂 Repository Index (Branches)
+## Project Evolution
+The project is divided into three iterative directories:
 
-- **[`assignment-1-c-basics`](https://github.com/ntontouu/Advanced-Network-Programming/tree/assignment-1-c-basics)**: C language fundamentals (Pointers, Structs, CLI Arguments).
-- **[`assignment-2-tcp-sockets`](https://github.com/ntontouu/Advanced-Network-Programming/tree/assignment-2-tcp-sockets)**: Introduction to Berkeley Sockets, TCP Client-Server architecture, and IPv4 addressing.
-- **[`assignment-3-chat-application`](https://github.com/ntontouu/Advanced-Network-Programming/tree/assignment-3-chat-application)**: Advanced Multiplexing I/O utilizing `select()`, evolving from a simple Client-Server chat to a multi-client Chatroom with private messaging (`/msg`).
+### `ΜΕΡΟΣ_Α`: Bi-directional Client-Server Chat
+- Transitioned from simple echo behavior to a two-way terminal chat.
+- Utilized `select()` to multiplex between `stdin` (keyboard input) and the network `sockfd`.
+
+### `ΜΕΡΟΣ_Β`: Mediated Client-to-Client Chat
+- Modified the server to drop the `fork()` paradigm in favor of Multiplexing I/O.
+- The server now acts as a central mediator, storing active client `fd`s and routing payloads from Client A directly to Client B. Clients introduce themselves with a username upon connection.
+
+### `ΜΕΡΟΣ_Γ`: Multi-User Chatroom & Private Messaging
+- Expanded server capacity to handle multiple concurrent clients.
+- Implemented payload parsing on the server-side to distinguish between public broadcasts and **Direct Messages (DMs)**.
+- Users can send private messages using the syntax: `/msg <username> <content>`. The server utilizes `strncmp` and `sscanf` to route the data strictly to the target's socket.
 
 ---
 **Author:** Maria Alexandra Ntontou (2799)
